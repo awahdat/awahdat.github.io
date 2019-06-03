@@ -3,24 +3,7 @@
 <head>
     <meta charset='utf-8' />
 	
-	<style>
-
-        #tooltip {
-            font-family: sans-serif;
-            color: #454545;
-        }
-
-        #dropdown {
-            margin-bottom: 20px;
-            margin-right: 35px;
-        }
-
-        h3, h5 {
-            margin: 0;
-        }
-
-        
-    </style>    
+	
 	
     <title>Interactive Map of a Decade of U.S. Natural Disasters</title>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
@@ -48,8 +31,9 @@
 	mapboxgl.accessToken = 'pk.eyJ1IjoiYWhtYWR6aWFhZmdoYW4iLCJhIjoiY2p3ZTZudzhwMHlocDRhbnV5Y2JqNXBoZyJ9.b24IkCoA97OuoYo--iCqXw';
 	var map = new mapboxgl.Map({
 		container: 'map',
-		style: 'mapbox://styles/ahmadziaafghan/cjwcn1is901ik1cns4vowe0ez' // replace this with your style URL
-		
+		style: 'mapbox://styles/ahmadziaafghan/cjwcn1is901ik1cns4vowe0ez', // replace this with your style URL
+		zoom: 15,
+		center: [39.828175, -98.5795]	
 	});
 	
 </script>
