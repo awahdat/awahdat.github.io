@@ -30,13 +30,22 @@
 	<!--<link href='css/app.css' rel='stylesheet' /> -->
 </head>
 <body>
-
+	
+		<!-- dropdown -->
+    <select id="dropdown"></select>
+	
+	<!-- state and its value -->
+    <div id = "tooltip">
+        <h3><span id = "NAME">&nbsp;</span></h3>
+        <h5><span id = "datum">&nbsp;</span></h5>
+		<p>Hover over a state!</p>
+    </div>
 
 	
 	<div id='map'></div>
 	
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoiYWhtYWR6aWFhZmdoYW4iLCJhIjoiY2p3OGFyZmx5MTN5cDQ4bzk5b25mMHNxcSJ9.A4XwXqy0yv6K9FGr9GLjcA';
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYWhtYWR6aWFhZmdoYW4iLCJhIjoiY2p3ZTZudzhwMHlocDRhbnV5Y2JqNXBoZyJ9.b24IkCoA97OuoYo--iCqXw';
 	var map = new mapboxgl.Map({
 		container: 'map',
 		style: 'mapbox://styles/ahmadziaafghan/cjwcn1is901ik1cns4vowe0ez', // replace this with your style URL
