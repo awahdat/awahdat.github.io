@@ -86,51 +86,7 @@ var usLayer = L.mapbox.featureLayer()
     .addTo(map);
     .on('ready', loadData);
 
-// Grab the spreadsheet of data as JSON. If you have CSV
-// data, you should convert it to JSON with
-// http://shancarter.github.io/mr-data-converter/
-function loadData() {
-    $.getgeoJSON('/mapbox.js/assets/data/noaaState.geojson')
-        .done(function(data) {
-            joinData(data, usLayer);
-        });
-}
 
-function joinData(data, layer) {
-    // First, get the US state GeoJSON data for reference.
-    var usGeoJSON = usLayer.getGeoJSON(),
-        byState = {};
-
-    // Rearrange it so that instead of being a big array,
-    // it's an object that is indexed by the state name,
-    // that we'll use to join on.
-    for (var i = 0; i < usGeoJSON.features.length; i++) {
-        byState[usGeoJSON.features[i].properties.name] =
-            usGeoJSON.features[i];
-    }
-    for (i = 0; i < data.length; i++) {
-        // Match the GeoJSON data (byState) with the tabular data
-        // (data), replacing the GeoJSON feature properties
-        // with the full data.
-        byState[data[i].name].properties = data[i];
-        for (var j = 0; j < variables.length; j++) {
-            // Simultaneously build the table of min and max
-            // values for each attribute.
-            var n = variables[j];
-            ranges[n].min = Math.min(data[i][n], ranges[n].min);
-            ranges[n].max = Math.max(data[i][n], ranges[n].max);
-        }
-    }
-    // Create a new GeoJSON array of features and set it
-    // as the new usLayer content.
-    var newFeatures = [];
-    for (i in byState) {
-        newFeatures.push(byState[i]);
-    }
-    usLayer.setGeoJSON(newFeatures);
-    // Kick off by filtering on an attribute.
-    setVariable(variables[0]);
-}
 
 // Excuse the short function name: this is not setting a JavaScript
 // variable, but rather the variable by which the map is colored.
