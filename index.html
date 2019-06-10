@@ -84,9 +84,17 @@ for (var i = 0; i < variables.length; i++) {
 var usLayer = L.mapbox.featureLayer()
     .loadURL('/mapbox.js/assets/data/noaaState.geojson')
     .addTo(map);
-    //.on('ready', loadData);
+    .on('ready', loadData);
 
-
+// Grab the spreadsheet of data as JSON. If you have CSV
+// data, you should convert it to JSON with
+// http://shancarter.github.io/mr-data-converter/
+function loadData() {
+    $.getJSON('/mapbox.js/assets/data/noaaState.geojson')
+        .done(function(data) {
+            joinData(data, usLayer);
+        });
+}
 
 function joinData(data, layer) {
     // First, get the US state GeoJSON data for reference.
