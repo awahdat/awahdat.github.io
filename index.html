@@ -90,7 +90,7 @@ var usLayer = L.mapbox.featureLayer()
 // data, you should convert it to JSON with
 // http://shancarter.github.io/mr-data-converter/
 function loadData() {
-    $.getJSON('/mapbox.js/assets/data/noaaState.geojson')
+    $.getgeoJSON('/mapbox.js/assets/data/noaaState.geojson')
         .done(function(data) {
             joinData(data, usLayer);
         });
