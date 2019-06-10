@@ -51,8 +51,8 @@ var hues = [
     '#feb24c',
     '#fd8d3c',
     '#fc4e2a',
-	'#e31a1c',
-	'#b10026'];
+    '#e31a1c',
+    '#b10026'];
 
 // The names of variables that we'll show in the UI for
 // styling. These need to match exactly.
@@ -83,8 +83,8 @@ for (var i = 0; i < variables.length; i++) {
 // loading, run loadData
 var usLayer = L.mapbox.featureLayer()
     .loadURL('/mapbox.js/assets/data/noaaState.geojson')
-    .addTo(map)
-    .on('ready', loadData);
+    .addTo(map);
+    //.on('ready', loadData);
 
 
 
