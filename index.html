@@ -176,6 +176,14 @@ function setVariable(name) {
         });
     });
 }
+  
+var previousLegend;
+function changeLegend() {
+  if (previousLegend) map.legendControl.removeLegend(previousLegend)
+  var newLegend = getLegendHTML();
+  map.legendControl.addLegend(newLegend);
+  previousLegend = newLegend;
+}  
 
 </script>
 </body>
