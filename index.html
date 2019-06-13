@@ -80,7 +80,7 @@ for (var i = 0; i < variables.length; i++) {
 // Create a layer of state features, and when it's done
 // loading, run loadData
 var usLayer = L.mapbox.featureLayer()
-    .loadURL('https://raw.githubusercontent.com/awahdat/vizrisk_2020/master/us.geojson')
+    .loadURL('https://docs.mapbox.com/mapbox.js/assets/data/us.geojson')
     .addTo(map)
     .on('ready', loadData);
 
