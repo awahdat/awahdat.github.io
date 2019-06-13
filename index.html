@@ -4,8 +4,8 @@
 <meta charset=utf-8 />
 <title>Multiple choropleth maps</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -32,11 +32,14 @@ path {
 <!-- jQuery is required for this example. -->
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 <script>
-L.mapbox.accessToken = 'pk.eyJ1IjoiYWhtYWR6aWFhZmdoYW4iLCJhIjoiY2p3ZTZudzhwMHlocDRhbnV5Y2JqNXBoZyJ9.b24IkCoA97OuoYo--iCqXw';
-var map = L.mapbox.map('map')
-    .setView([40, -96], 4)
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/ahmadziaafghan/cjwcn1is901ik1cns4vowe0ez'));;
-
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWhtYWR6aWFhZmdoYW4iLCJhIjoiY2p3ZTZudzhwMHlocDRhbnV5Y2JqNXBoZyJ9.b24IkCoA97OuoYo--iCqXw';
+var map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/ahmadziaafghan/cjwcn1is901ik1cns4vowe0ez', // replace this with your style URL
+		zoom: 5,
+		center: [40, -96]	
+	});
+  
 // Be nice and credit our data source, Census Reporter.
 map.attributionControl.addAttribution('Data from ' +
   '<a href="http://censusreporter.org/data/map/?table=B06011&geo_ids=040%7C01000US#">' +
