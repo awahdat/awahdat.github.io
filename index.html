@@ -34,7 +34,7 @@ path {
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWhtYWR6aWFhZmdoYW4iLCJhIjoiY2p3ZTZudzhwMHlocDRhbnV5Y2JqNXBoZyJ9.b24IkCoA97OuoYo--iCqXw';
 var map = L.mapbox.map('map')
-    .setView([40, -96], 4)
+    .setView([40, -96], 5)
     .addLayer(L.mapbox.styleLayer('mapbox://styles/ahmadziaafghan/cjwu1nosj30ah1cmurusspb9f'));;
 
 // Be nice and credit our data source, Census Reporter.
@@ -171,7 +171,7 @@ function setVariable(name) {
         // http://leafletjs.com/reference.html#path
         layer.setStyle({
             fillColor: hues[division],
-            fillOpacity: 0.8,
+            fillOpacity: 0.7,
             weight: 0.5
         });
     });
