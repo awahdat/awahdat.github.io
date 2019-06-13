@@ -28,8 +28,6 @@ path {
 
 <div id='map'></div>
 <div id='variables' class='menu-ui'></div>
-<div class='map-overlay' id='features'><h2>US Weather Disasters</h2><div id='pd'><p>Hover over a state!</p></div></div>
-<div class='map-overlay' id='legend'></div>
 
 <!-- jQuery is required for this example. -->
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
@@ -179,13 +177,6 @@ function setVariable(name) {
     });
 }
   
-var previousLegend;
-function changeLegend() {
-  if (previousLegend) map.legendControl.removeLegend(previousLegend)
-  var newLegend = getLegendHTML();
-  map.legendControl.addLegend(newLegend);
-  previousLegend = newLegend;
-}  
 
 </script>
 </body>
