@@ -39,8 +39,8 @@ var map = L.mapbox.map('map')
 
 // Be nice and credit our data source, Census Reporter.
 map.attributionControl.addAttribution('Data from ' +
-  '<a href="http://censusreporter.org/data/map/?table=B06011&geo_ids=040%7C01000US#">' +
-  'Census Reporter</a>');
+  '<a href="https://www.ncdc.noaa.gov/stormevents/">' +
+  'NOAA Storms Event Data</a>');
 
 // Choropleth colors from http://colorbrewer2.org/
 // You can choose your own range (or different number of colors)
@@ -111,7 +111,7 @@ var usLayer = L.mapbox.featureLayer()
 // data, you should convert it to JSON with
 // http://shancarter.github.io/mr-data-converter/
 function loadData() {
-    $.getJSON('awahdat.github.io/vizrisk_2020/noaaData2.json')
+    $.getJSON('https://raw.githubusercontent.com/awahdat/vizrisk_2020/master/noaaData2.json')
         .done(function(data) {
             joinData(data, usLayer);
         });
