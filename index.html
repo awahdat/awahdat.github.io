@@ -182,7 +182,7 @@ function setVariable(name) {
         // http://leafletjs.com/reference.html#path
         layer.setStyle({
             fillColor: hues[division],
-            fillOpacity: 0.7,
+            fillOpacity: 0.6,
             weight: 0.5
         });
         layer.on({
@@ -199,7 +199,7 @@ function setVariable(name) {
 
       popup.setLatLng(e.latlng);
       popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-          layer.feature.properties[name] + ' people per square mile');
+          layer.feature.properties[name] + ' ');
 
       if (!popup._map) popup.openOn(map);
       window.clearTimeout(closeTooltip);
