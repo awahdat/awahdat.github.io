@@ -24,6 +24,12 @@ path {
   -webkit-transition:fill 200ms;
           transition:fill 200ms;
   }
+.leaflet-popup-close-button {
+  display: none;
+  }
+.leaflet-popup-content-wrapper {
+  pointer-events: none;
+  } 
 </style>
 
 <div id='map'></div>
@@ -41,6 +47,8 @@ var map = L.mapbox.map('map')
 map.attributionControl.addAttribution('Data from ' +
   '<a href="https://www.ncdc.noaa.gov/stormevents/">' +
   'NOAA Storms Event Data</a>');
+  
+var popup = new L.Popup({ autoPan: false });  
 
 // Choropleth colors from http://colorbrewer2.org/
 // You can choose your own range (or different number of colors)
@@ -174,7 +182,47 @@ function setVariable(name) {
             fillOpacity: 0.7,
             weight: 0.5
         });
+        layer.on({
+          mousemove: mousemove,
+          mouseout: mouseout,
+          click: zoomToFeature
+        });
     });
+  
+  var closeTooltip;
+
+  function mousemove(e) {
+      var layer = e.target;
+
+      popup.setLatLng(e.latlng);
+      popup.setContent('<div class="marker-title">' + layer.feature.properties[name] + '</div>' +
+          layer.feature.properties[name] + ' people per square mile');
+
+      if (!popup._map) popup.openOn(map);
+      window.clearTimeout(closeTooltip);
+
+      // highlight feature
+      layer.setStyle({
+          weight: 3,
+          opacity: 0.3,
+          fillOpacity: 0.9
+      });
+
+      if (!L.Browser.ie && !L.Browser.opera) {
+          layer.bringToFront();
+      }
+  }
+
+  function mouseout(e) {
+      statesLayer.resetStyle(e.target);
+      closeTooltip = window.setTimeout(function() {
+          map.closePopup();
+      }, 100);
+  }
+  
+  function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+  }
 }
   
 
