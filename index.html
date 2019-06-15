@@ -206,9 +206,9 @@ function setVariable(name) {
 
       // highlight feature
       layer.setStyle({
-          weight: 2,
+          weight: 3,
           opacity: 0.3,
-          fillOpacity: 0.7
+          fillOpacity: 0.9
       });
 
       if (!L.Browser.ie && !L.Browser.opera) {
@@ -217,7 +217,7 @@ function setVariable(name) {
   }
 
   function mouseout(e) {
-      usGeoJSON.resetStyle(e.target);
+      layer.feature.resetStyle(e.target);
       closeTooltip = window.setTimeout(function() {
           map.closePopup();
       }, 100);
