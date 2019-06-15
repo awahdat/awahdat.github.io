@@ -186,9 +186,9 @@ function setVariable(name) {
             weight: 2
         });
         layer.on({
-          mousemove: mousemove,
-          mouseout: mouseout,
-          click: zoomToFeature
+            mousemove: mousemove,
+            mouseout: mouseout,
+            click: zoomToFeature
         });
     });
 }
@@ -218,7 +218,7 @@ function setVariable(name) {
   }
 
   function mouseout(e) {
-      layer.feature.resetStyle(e.target);
+      layer.resetStyle(e.target);
       closeTooltip = window.setTimeout(function() {
           map.closePopup();
       }, 100);
