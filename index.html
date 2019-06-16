@@ -213,10 +213,6 @@ function setVariable(name) {
                 layer.bringToFront();
             }
         }
-        
-        closeTooltip = window.setTimeout(function() {
-                map.closePopup();
-            }, 100);
       
         function mouseout(e) {
             layer.resetStyle(e.target);
@@ -230,7 +226,13 @@ function setVariable(name) {
         }
     });  
 }
-  
+
+        function mouseout(e) {
+            layer.resetStyle(e.target);
+            closeTooltip = window.setTimeout(function() {
+                map.closePopup();
+            }, 100);
+        }  
 
 </script>
 </body>
