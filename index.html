@@ -215,7 +215,7 @@ function setVariable(name) {
         }
 
         function mouseout(e) {
-            layer.feature.properties.resetStyle(e.target);
+            usLayer.eachLayer.resetStyle(e.target);
             closeTooltip = window.setTimeout(function() {
                 map.closePopup();
             }, 100);
