@@ -197,7 +197,12 @@ function setVariable(name) {
 
             popup.setLatLng(e.latlng);
             popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-                layer.feature.properties[name] + ' ');
+                layer.feature.properties[name] + 
+                if (name.slice(1, 3) = dmg)
+                  'million in loss';
+                else
+                  'incidents';
+            );
 
             if (!popup._map) popup.openOn(map);
             window.clearTimeout(closeTooltip);
