@@ -203,11 +203,11 @@ function setVariable(name) {
             window.clearTimeout(closeTooltip);
 
             // highlight feature
-            layer.setStyle({
-                weight: 3,
-                opacity: 0.3,
-                fillOpacity: 0.1
-            });
+            //layer.setStyle({
+                //weight: 3,
+                //opacity: 0.3,
+                //fillOpacity: 0.1
+            //});
 
             if (!L.Browser.ie && !L.Browser.opera) {
                 layer.bringToFront();
@@ -227,12 +227,7 @@ function setVariable(name) {
     });  
 }
 
-        function mouseout(e) {
-            layer.resetStyle(e.target);
-            closeTooltip = window.setTimeout(function() {
-                map.closePopup();
-            }, 100);
-        }  
+      
 
 </script>
 </body>
