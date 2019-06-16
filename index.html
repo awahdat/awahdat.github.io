@@ -190,43 +190,41 @@ function setVariable(name) {
             mouseout: mouseout,
             click: zoomToFeature
         });
-    });
+        var closeTooltip;
 
-  
-  var closeTooltip;
+        function mousemove(e) {
+            var layer = e.target;
 
-  function mousemove(e) {
-      var layer = e.target;
+            popup.setLatLng(e.latlng);
+            popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+                layer.feature.properties[name] + ' ');
 
-      popup.setLatLng(e.latlng);
-      popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-          layer.feature.properties[name] + ' ');
+            if (!popup._map) popup.openOn(map);
+            window.clearTimeout(closeTooltip);
 
-      if (!popup._map) popup.openOn(map);
-      window.clearTimeout(closeTooltip);
+            // highlight feature
+            layer.setStyle({
+                weight: 3,
+                opacity: 0.3,
+                fillOpacity: 0.9
+            });
 
-      // highlight feature
-      layer.setStyle({
-          weight: 3,
-          opacity: 0.3,
-          fillOpacity: 0.9
-      });
+            if (!L.Browser.ie && !L.Browser.opera) {
+                layer.bringToFront();
+            }
+        }
 
-      if (!L.Browser.ie && !L.Browser.opera) {
-          layer.bringToFront();
-      }
-  }
+        function mouseout(e) {
+            layer.resetStyle(e.target);
+            closeTooltip = window.setTimeout(function() {
+                map.closePopup();
+            }, 100);
+        }
 
-  function mouseout(e) {
-      layer.resetStyle(e.target);
-      closeTooltip = window.setTimeout(function() {
-          map.closePopup();
-      }, 100);
-  }
-  
-  function zoomToFeature(e) {
-      map.fitBounds(e.target.getBounds());
-  }
+        function zoomToFeature(e) {
+            map.fitBounds(e.target.getBounds());
+        }
+    });  
 }
   
 
