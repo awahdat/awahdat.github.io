@@ -206,16 +206,20 @@ function setVariable(name) {
             layer.setStyle({
                 weight: 3,
                 opacity: 0.3,
-                fillOpacity: 0.9
+                fillOpacity: 0.1
             });
 
             if (!L.Browser.ie && !L.Browser.opera) {
                 layer.bringToFront();
             }
         }
-
+        
+        closeTooltip = window.setTimeout(function() {
+                map.closePopup();
+            }, 100);
+      
         function mouseout(e) {
-            layer.resetStyle(usLayer);
+            layer.resetStyle(e.target);
             closeTooltip = window.setTimeout(function() {
                 map.closePopup();
             }, 100);
