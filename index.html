@@ -196,13 +196,15 @@ function setVariable(name) {
             var layer = e.target;
 
             popup.setLatLng(e.latlng);
-            popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-                layer.feature.properties[name] + 
-                if (name.slice(1, 3) == dmg)
-                  'million in loss';
-                else
-                  'incidents';
-            );
+          
+            if (name.slice(0, 4) == dmg) {
+              popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+                  layer.feature.properties[name] + 'million in loss');
+                               }      
+            else if (name.slice(0, 4) != dmg) {
+              popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+                  layer.feature.properties[name] + 'incident');
+  
 
             if (!popup._map) popup.openOn(map);
             window.clearTimeout(closeTooltip);
