@@ -197,10 +197,10 @@ function setVariable(name) {
 
             popup.setLatLng(e.latlng);
           
-            if (variable.slice(0, 4) == dmg)
+            if (name.slice(0, 4) == dmg)
               popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
                   layer.feature.properties[name] + 'million in loss');      
-            else if (variable.slice(0, 4) != dmg) 
+            else if (name.slice(0, 4) != dmg) 
               popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
                   layer.feature.properties[name] + 'incident');
   
