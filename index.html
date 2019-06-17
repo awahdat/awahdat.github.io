@@ -84,6 +84,7 @@ map.attributionControl.addAttribution('Data from ' +
   '<a href="https://www.ncdc.noaa.gov/stormevents/">' +
   'NOAA Storms Event Data</a>');
 
+var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'bottom-left');
   
 var popup = new L.Popup({ autoPan: false });  
