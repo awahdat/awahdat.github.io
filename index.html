@@ -76,7 +76,7 @@ section:last-child {
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWhtYWR6aWFhZmdoYW4iLCJhIjoiY2p3ZTZudzhwMHlocDRhbnV5Y2JqNXBoZyJ9.b24IkCoA97OuoYo--iCqXw';
 var map = L.mapbox.map('map')
-    .setView([40, -96], 5)
+    .setView([40, -96], 4)
     .addLayer(L.mapbox.styleLayer('mapbox://styles/ahmadziaafghan/cjwu1nosj30ah1cmurusspb9f'));;
 
 // Be nice and credit our data source, Census Reporter.
@@ -84,8 +84,8 @@ map.attributionControl.addAttribution('Data from ' +
   '<a href="https://www.ncdc.noaa.gov/stormevents/">' +
   'NOAA Storms Event Data</a>');
 
-var nav = new mapboxgl.NavigationControl();
-map.addControl(nav, 'bottom-left');
+//var nav = new mapboxgl.NavigationControl();
+//map.addControl(nav, 'bottom-left');
   
 var popup = new L.Popup({ autoPan: false });  
 
