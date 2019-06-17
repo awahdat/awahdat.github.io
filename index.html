@@ -1,45 +1,26 @@
 <!DOCTYPE html>
 <html>
+  
 <head>
-<meta charset=utf-8 />
-<title>Multiple choropleth maps</title>
-<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
-  
-#features {
-    width: 50%;
-    margin-left: 50%;
-    color: white;
-    font-family: 'Helvetica Neue', sans-serif;
-}
-section {
-    padding: 100px 50px 25px;
-    line-height: 25px;
-    border-bottom: 1px solid #ddd;
-    opacity: 0.25;
-    font-size: 20px;
-}
-
-#welcome {
-    padding-top: 25px;
-}
-
-section.active {
-    opacity: 1;
-}
-section:last-child {
-    border-bottom: none;
-    margin-bottom: 1000px;
-}  
-  
+    <meta charset=utf-8 />
+    <title>Multiple choropleth maps</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
+    <style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
 </head>
+  
 <body>
+#map {
+    position: fixed;
+    width:70%;
+}
+  
 <style>
+  
 .menu-ui {
   position:absolute;
   top:10px;
@@ -57,18 +38,39 @@ path {
 .leaflet-popup-content-wrapper {
   pointer-events: none;
   } 
+
+#features {
+    width: 30%;
+    margin-left: 50%;
+    font-family: Tw Cen MT;
+    overflow-y: scroll;
+    background-color: #fafafa;
+}
+section {
+    padding:  25px 50px;
+    line-height: 25px;
+    border-bottom: 1px solid #ddd;
+    opacity: 0.25;
+    font-size: 20px;
+}
+section.active {
+    opacity: 1;
+}
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 1000px;
+}
   
- </style>
+</style>
 
 <div id='map'></div>
 <div id='variables' class='menu-ui'></div>
 <div id='features'>
-        <section id='welcome' class='active'>
-            <h3>World Cup 2018 Team Story: Iceland</h3>
-            <p>After 12 failed qualification campaigns, Iceland finally made it to the World Cup finals. They are for sure the biggest supurise for Russia World Cup 2018.</p>
-            <p>Let's follow the map camera to find out who they are and how they made a history.</p>
-            <div style="width:100%;height:0;padding-bottom:100%;position:left;"><iframe src="https://giphy.com/embed/Wxo3k8GxuCV4k" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" ></iframe></div><p><a href="https://giphy.com/gifs/world-cup-nation-Wxo3k8GxuCV4k" target="_blank">via GIPHY</a></p>
-        </section>
+    <section id='welcome' class='active'>
+        <h3>Welcome to Challenge #3!</h3>
+        <p>With Mapbox's <a href="https://www.mapbox.com/mapbox-gl-js/api/">GL JS JavaScript library</a>, you can create interactive maps for your web applications. By looking at the source code, you can get a sense of how to make an interactive map that can tell a story. Scroll down to read more...</p>
+    </section>
+</div>  
 
 <!-- jQuery is required for this example. -->
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
@@ -268,6 +270,15 @@ function setVariable(name) {
     });  
 }
 
+var chapters = {
+    'welcome': {
+        bearing: -0,
+        center: [37.52984664657049,55.75369642243939],
+        zoom: 2,
+        speed: 0.8,
+        pitch: 0
+    },
+};  
 
 </script>
 </body>
