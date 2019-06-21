@@ -112,32 +112,32 @@ var hues = [
 // The names of variables that we'll show in the UI for
 // styling. These need to match exactly.
 var variables = [
-    'sumCoastalFlood',
-    'dmgCoastalFlood',
-    'sumDrought',
-    'dmgDrought',
-    'sumFlashFlood',
-    'dmgFlashFlood',
-    'sumFlood',
-    'dmgFlood',
-    'sumHail',
-    'dmgHail',
-    'sumHighWind',
-    'dmgHighWind',
-    'sumHurricane',
-    'dmgHurricane',
-    'sumLightning',
-    'dmgLightning',
-    'sumStormSurgeTide',
-    'dmgStormSurgeTide',
-    'sumStrongWind',
-    'dmgStrongWind',
-    'sumThunderstormWind',
-    'dmgThunderstormWind',
-    'sumTornado',
-    'dmgTornado',
-    'sumWinterStorm',
-    'dmgWinterStorm'];
+   'Hurricane_Frequency - Total Count',
+   'Hurricane_Damage - Million of Dollars',
+   'StormSurgeTide_Frequency - Total Count',
+   'StormSurgeTide_Damage - Million of Dollars',
+   'Flood_Frequency - Total Count',
+   'Flood_Damage - Million of Dollars',
+   'Tornado_Frequency - Total Count',
+   'Tornado_Damage - Million of Dollars',
+   'CoastalFlood_Frequency - Total Count',
+   'CoastalFlood_Damage - Million of Dollars',
+   'Drought_Frequency - Total Count',
+   'Drought_Damage - Million of Dollars',
+   'Hail_Frequency - Total Count',
+   'Hail_Damage - Million of Dollars',
+   'FlashFlood_Frequency - Total Count',
+   'FlashFlood_Damage - Million of Dollars',
+   'StormWind_Frequency - Total Count',
+   'StormWind_Damage - Million of Dollars',
+   'HighWind_Frequency - Total Count',
+   'HighWind_Damage - Million of Dollars',
+   'Lightning_Frequency - Total Count',
+   'Lightning_Damage - Million of Dollars',
+   'StrongWind_Frequency - Total Count',
+   'StrongWind_Damage - Million of Dollars',
+   'WinterStorm_Frequency - Total Count',
+   'WinterStorm_Damage - Million of Dollars'];
 
 // Collect the range of each variable over the full set, so
 // we know what to color the brightest or darkest.
@@ -271,7 +271,7 @@ function setVariable(name) {
             //layer.resetStyle(e.target);
             closeTooltip = window.setTimeout(function() {
                 map.closePopup();
-            }, 1000);
+            }, 15000);
         }
 
         function zoomToFeature(e) {
